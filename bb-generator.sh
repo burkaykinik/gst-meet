@@ -22,20 +22,21 @@ for dir in */; do
         echo "BB_STRICT_CHECKSUM = \"0\"
 ">> "$bb_file"
 
-# echo "\
-# DEPENDS = \" \
-#     gstreamer1.0 \
-#     gstreamer1.0-plugins-base \
-#     glib-2.0 \
-#     openssl \
-#     pkgconfig \
-#     \"
+echo "\
+DEPENDS = \" \\
+    gstreamer1.0 \\
+    gstreamer1.0-plugins-base \\
+    glib-2.0 \\
+    openssl \\
+    pkgconfig \\
+    \"
 
-# DEPENDS += \"\
-#     libnice \
-#     pkgconfig-native \
-#     \"
-# " >> "$bb_file"
+DEPENDS += \"\\
+    libnice \\
+    pkgconfig-native \\
+    clang-native \\
+    \"
+" >> "$bb_file"
 
         [ -e "$bb_file" ] && mv "$bb_file" "$dest_dir/"
 
