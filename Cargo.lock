@@ -72,31 +72,42 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0"
 
 [[package]]
-name = "aws-lc-rs"
-version = "1.7.2"
+name = "aws-lc-fips-sys"
+version = "0.13.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "474d7cec9d0a1126fad1b224b767fcbf351c23b0309bb21ec210bcfd379926a5"
-dependencies = [
- "aws-lc-sys",
- "mirai-annotations",
- "paste",
- "untrusted 0.7.1",
- "zeroize",
-]
-
-[[package]]
-name = "aws-lc-sys"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7505fc3cb7acbf42699a43a79dd9caa4ed9e99861dfbb837c5c0fb5a0a8d2980"
+checksum = "2608e5a7965cc9d58c56234d346c9c89b824c4c8652b6f047b3bd0a777c0644f"
 dependencies = [
  "bindgen",
  "cc",
  "cmake",
  "dunce",
  "fs_extra",
- "libc",
- "paste",
+ "regex",
+]
+
+[[package]]
+name = "aws-lc-rs"
+version = "1.13.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5c953fe1ba023e6b7730c0d4b031d06f267f23a46167dcbd40316644b10a17ba"
+dependencies = [
+ "aws-lc-fips-sys",
+ "aws-lc-sys",
+ "untrusted 0.7.1",
+ "zeroize",
+]
+
+[[package]]
+name = "aws-lc-sys"
+version = "0.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dbfd150b5dbdb988bcc8fb1fe787eb6b7ee6180ca24da683b61ea5405f3d43ff"
+dependencies = [
+ "bindgen",
+ "cc",
+ "cmake",
+ "dunce",
+ "fs_extra",
 ]
 
 [[package]]
@@ -137,9 +148,9 @@ dependencies = [
 
 [[package]]
 name = "bindgen"
-version = "0.69.4"
+version = "0.69.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a00dc851838a2120612785d195287475a3ac45514741da670b735818822129a0"
+checksum = "271383c67ccabffb7381723dea0672a673f292304fcb45c01cc648c7a8d58088"
 dependencies = [
  "bitflags 2.5.0",
  "cexpr",
@@ -208,13 +219,13 @@ checksum = "514de17de45fdb8dc022b1a7975556c53c86f9f0aa5f534b98977b171857c2c9"
 
 [[package]]
 name = "cc"
-version = "1.0.98"
+version = "1.2.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41c270e7540d725e65ac7f1b212ac8ce349719624d7bcff99f8e2e488e8cf03f"
+checksum = "3ee0f8803222ba5a7e2777dd72ca451868909b1ac410621b676adf07280e9b5f"
 dependencies = [
  "jobserver",
  "libc",
- "once_cell",
+ "shlex",
 ]
 
 [[package]]
@@ -1037,6 +1048,7 @@ dependencies = [
  "anyhow",
  "async-stream",
  "async-trait",
+ "aws-lc-rs",
  "base64 0.22.1",
  "bytes",
  "colibri",
@@ -1208,12 +1220,6 @@ dependencies = [
  "wasi",
  "windows-sys 0.48.0",
 ]
-
-[[package]]
-name = "mirai-annotations"
-version = "1.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c9be0862c1b3f26a88803c4a49de6889c10e608b3ee9344e6ef5b45fb37ad3d1"
 
 [[package]]
 name = "muldiv"
@@ -2880,17 +2886,3 @@ name = "zeroize"
 version = "1.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ced3678a2879b30306d323f4542626697a464a97c0a07c9aebf7ebca65cd4dde"
-dependencies = [
- "zeroize_derive",
-]
-
-[[package]]
-name = "zeroize_derive"
-version = "1.4.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce36e65b0d2999d2aafac989fb249189a141aee1f53c612c1f37d72631959f69"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.66",
-]
