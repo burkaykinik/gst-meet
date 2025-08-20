@@ -4,6 +4,7 @@ description = "A tool for connecting GStreamer pipelines to Jitsi Meet conferenc
 version = "0.5.0"
 edition = "2021"
 license = "MIT/Apache-2.0"
+repository = "https://github.com/avstack/gst-meet"
 authors = ["Jasper Hugo <jasper@avstack.io>"]
 
 [dependencies]

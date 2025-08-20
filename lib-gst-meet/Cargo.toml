@@ -65,3 +65,8 @@ tls-native = ["tokio-tungstenite/native-tls", "native-tls"]
 tls-native-vendored = ["tokio-tungstenite/native-tls-vendored", "native-tls/vendored"]
 tls-rustls-native-roots = ["tokio-tungstenite/rustls-tls-native-roots", "rustls", "rustls-native-certs"]
 tls-rustls-webpki-roots = ["tokio-tungstenite/rustls-tls-webpki-roots", "rustls", "webpki-roots"]
+
+[dependencies.aws-lc-rs]
+version = "1.13.3"
+default-features = false
+features = ["bindgen"]
